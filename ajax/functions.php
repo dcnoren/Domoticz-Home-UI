@@ -198,6 +198,8 @@ function getAllStatus($md5_only){
 		}
 	}
 	
+	$md5Lights = md5(print_r($ajax["lights"], true));
+	
 	//Fans
 	foreach ($result["result"] as $i2=>$v2){
 		$statusType = $v2["Type"];
@@ -237,6 +239,8 @@ function getAllStatus($md5_only){
 	} else {
 		$ajax["meta"]["md5"] = $md5;
 		$meta["meta"]["md5"] = $md5;
+		$ajax["meta"]["lightd5"] = $md5Lights;
+		$meta["meta"]["lightd5"] = $md5Lights;
 		$timestamp = timestamp();
 		$ajax["meta"]["timestamp"] = $timestamp;
 		$meta["meta"]["timestamp"] = $timestamp;
