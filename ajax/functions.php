@@ -361,6 +361,8 @@ function getAllStatus($md5_only){
 function setSceneStatus($scene){
 	
 	if ($scene == "1"){
+		
+		/*
 		setDimmerStatus("7", "Off", "false");	//Down Hall
 		setDimmerStatus("8", "Off", "false");	//Garage
 		setDimmerStatus("9", "Off", "false");	//Entry
@@ -377,6 +379,75 @@ function setSceneStatus($scene){
 		setDimmerStatus("36", "Off", "true");	//Family Room
 		setDimmerStatus("38", "Off", "true");	//Landing
 		setDimmerStatus("39", "Off", "true");	//Breakfast Room
+		*/
+		
+		$scene = array();
+		
+		$scene[] = array(
+			"idx" => "7",
+			"setting" => "Off",
+			"percent" => "100"
+		);
+		$scene[] = array(
+			"idx" => "8",
+			"setting" => "Off",
+			"percent" => "100"
+		);
+		$scene[] = array(
+			"idx" => "9",
+			"setting" => "Off",
+			"percent" => "100"
+		);
+		$scene[] = array(
+			"idx" => "10",
+			"setting" => "Off",
+			"percent" => "100"
+		);
+		$scene[] = array(
+			"idx" => "34",
+			"setting" => "Off",
+			"percent" => "100"
+		);
+		$scene[] = array(
+			"idx" => "36",
+			"setting" => "Off",
+			"percent" => "100"
+		);
+		$scene[] = array(
+			"idx" => "38",
+			"setting" => "Off",
+			"percent" => "100"
+		);
+		$scene[] = array(
+			"idx" => "39",
+			"setting" => "Off",
+			"percent" => "100"
+		);
+		
+		$cm = curl_multi_init();
+		
+		foreach ($scene as $sceneSet){
+			$ch = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=$sceneSet['idx']&switchcmd=$sceneSet['setting']");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_multi_add_handle($cm, $ch);
+		}
+		
+		$running = null;
+		do {
+			curl_multi_exec($mh, $running);
+		} while ($running);
+		sleep(1);
+		$running = null;
+		do {
+			curl_multi_exec($mh, $running);
+		} while ($running);
+		sleep(2);
+		$running = null;
+		do {
+			curl_multi_exec($mh, $running);
+		} while ($running);
+		curl_close($mh);
+		
 	} elseif ($scene == "2"){
 		setDimmerStatus("7", "On", "false");	//Down Hall
 		setDimmerStatus("8", "On", "false");	//Garage
