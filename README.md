@@ -29,11 +29,10 @@ If you wish to have if/then type functionality, the PHP script "ajax/connector.p
 
 2.6 Modify the contents of ajax/connector.php to build in the linkages you wish.
 
-2.7 Modify ajax/functions.php to change scenes. Basically, the scenes allow for describing what the scene is, and setting the scene. Future updates will make this much easier, and abstract this functionality. Notice the mis-match in dimmer switch settings - this is due to a Domoticz issue. Be careful with this functionality out of the box, as it will be unpredictable in your environment. Further updates will allow a scene definition file so the code and scene definitions are separated.
-
+2.7 Create any scenes you wish directly in Domoticz, and they will reflect on the UI. Groups not (yet) supported.
 
 ===
 3.0 TODO
 ===
 
-This is basically a snap-shop of my configuration, including scenes and connectors, etc. Scenes will not work and may cause unpredictable results in your house (i.e. I do not know what will happen if the scripts attempts to turn on your sprinkler system, fire alarm, or any other device if you do not appropriately modify the scenes section of this script. PROCEED AT YOUR OWN RISK!!!!
+This is basically a snap-shop of my configuration, including scenes and connectors, etc. PROCEED AT YOUR OWN RISK!!!!

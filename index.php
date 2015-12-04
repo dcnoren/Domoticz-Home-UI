@@ -107,7 +107,7 @@
 			$(this).siblings(".Activated").removeClass("Activated");
 			myscene = $(this).attr("id");
 			$.get('ajax/ajax.php?action=setSceneStatus&scene=' + myscene);
-			$("#scenesBoard").parent().addClass("ui-disabled").delay(20000).queue(function(next){
+			$("#scenesBoard").parent().addClass("ui-disabled").delay(3000).queue(function(next){
 				$(this).removeClass("ui-disabled");
 				next();
 			});

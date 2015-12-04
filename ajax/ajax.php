@@ -26,6 +26,11 @@ if (isset($_GET["scene"])){
 	$scene = $_GET["scene"];
 }
 
+$level = "100";
+if (isset($_GET["level"])){
+	$level = $_GET["level"];
+}
+
 if ($action == "getLightStatus"){
 	
 	$ret_md5 = getLightStatus("true");
@@ -40,7 +45,7 @@ if ($action == "getLightStatus"){
 	$result = getLightStatus("false");
 	echo $result;
 } elseif ($action == "setDimmerStatus"){
-	$result = setDimmerStatus($idx, $command, "true");
+	$result = setDimmerStatus($idx, $command, "true", $level);
 	echo $result;
 } elseif ($action == "setStatus"){
 	$result = setStatus($idx, $command, "true");
