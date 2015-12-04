@@ -217,6 +217,19 @@ function getAllStatus($md5_only){
 		}
 	}
 	
+	$curlScene = curl_init(DOMOTICZ_JSON_URL . "?type=scenes");
+	curl_setopt($curlScene, CURLOPT_RETURNTRANSFER, 1);
+	$sceneResult = json_decode(curl_exec($curlScene), true);
+	curl_close($curlScene);
+	
+	foreach ($sceneResult["result"] as $i3=>$v3){
+		
+		$ajax["scenes"][$v3["idx"]]["Name"] = $v3["Name"];
+		$ajax["scenes"][$v3["idx"]]["Status"] = "Deactivated";
+		
+	}
+	
+	/**
 	//Scenes
 	$ajax["scenes"]["1"]["Name"] = "All Off";
 	$ajax["scenes"]["1"]["Status"] = "Deactivated";
@@ -230,7 +243,7 @@ function getAllStatus($md5_only){
 	$ajax["scenes"]["5"]["Status"] = "Deactivated";
 	$ajax["scenes"]["6"]["Name"] = "Entertaining";
 	$ajax["scenes"]["6"]["Status"] = "Deactivated";
-	
+	**/
 	/**
 	7 = Down Hall
 	8 = Garage
@@ -244,6 +257,7 @@ function getAllStatus($md5_only){
 	($ajax["lights"]["6"]["Status"] == "Transition")
 	**/
 	
+	/**
 	//Scene 1 - All Off
 	if (
 			($ajax["lights"]["7"]["Status"] == "Off")	//Down Hall
@@ -335,6 +349,8 @@ function getAllStatus($md5_only){
 		$ajax["scenes"]["6"]["Status"] = "Activated";
 	}
 	
+	**/
+	
 	
 	
 	
@@ -360,192 +376,11 @@ function getAllStatus($md5_only){
 
 function setSceneStatus($scene){
 	
-	if ($scene == "1"){
-		
-		/*
-		setDimmerStatus("7", "Off", "false");	//Down Hall
-		setDimmerStatus("8", "Off", "false");	//Garage
-		setDimmerStatus("9", "Off", "false");	//Entry
-		setDimmerStatus("10", "Off", "false");	//Front Porch
-		setDimmerStatus("34", "Off", "false");	//Dining Room
-		setDimmerStatus("36", "Off", "false");	//Family Room
-		setDimmerStatus("38", "Off", "false");	//Landing
-		setDimmerStatus("39", "Off", "false");	//Breakfast Room
-		setDimmerStatus("7", "Off", "true");	//Down Hall
-		setDimmerStatus("8", "Off", "true");	//Garage
-		setDimmerStatus("9", "Off", "true");	//Entry
-		setDimmerStatus("10", "Off", "true");	//Front Porch
-		setDimmerStatus("34", "Off", "true");	//Dining Room
-		setDimmerStatus("36", "Off", "true");	//Family Room
-		setDimmerStatus("38", "Off", "true");	//Landing
-		setDimmerStatus("39", "Off", "true");	//Breakfast Room
-		*/
-		
-		$scene = array();
-		
-		$scene[] = array(
-			"idx" => "7",
-			"setting" => "Off",
-			"percent" => "100"
-		);
-		$scene[] = array(
-			"idx" => "8",
-			"setting" => "Off",
-			"percent" => "100"
-		);
-		$scene[] = array(
-			"idx" => "9",
-			"setting" => "Off",
-			"percent" => "100"
-		);
-		$scene[] = array(
-			"idx" => "10",
-			"setting" => "Off",
-			"percent" => "100"
-		);
-		//$scene[] = array(
-		//	"idx" => "34",
-		//	"setting" => "Off",
-		//	"percent" => "100"
-		//);
-		$scene[] = array(
-			"idx" => "36",
-			"setting" => "Off",
-			"percent" => "100"
-		);
-		$scene[] = array(
-			"idx" => "38",
-			"setting" => "Off",
-			"percent" => "100"
-		);
-		$scene[] = array(
-			"idx" => "39",
-			"setting" => "Off",
-			"percent" => "100"
-		);
-		
-		$cm = curl_multi_init();
-		
-		foreach ($scene as $sceneSet){
-			$ch = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=" . $sceneSet['idx'] . "&switchcmd=" . $sceneSet['setting']);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_multi_add_handle($cm, $ch);
-		}
-		
-		$running = null;
-		do {
-			curl_multi_exec($cm, $running);
-		} while ($running > 0);
-		
-		sleep(3);
-		
-		$running = null;
-		do {
-			curl_multi_exec($cm, $running);
-		} while ($running > 0);
-		
-		sleep(3);
-		
-		$running = null;
-		do {
-			curl_multi_exec($cm, $running);
-		} while ($running > 0);
-		
-		sleep(3);
-		
-		$running = null;
-		do {
-			curl_multi_exec($cm, $running);
-		} while ($running > 0);
-		
-		curl_multi_close($cm);
-		
-	} elseif ($scene == "2"){
-		setDimmerStatus("7", "On", "false");	//Down Hall
-		setDimmerStatus("8", "On", "false");	//Garage
-		setDimmerStatus("9", "On", "false");	//Entry
-		setDimmerStatus("10", "On", "false");	//Front Porch
-		setDimmerStatus("34", "On", "false");	//Dining Room
-		setDimmerStatus("36", "On", "false");	//Family Room
-		setDimmerStatus("38", "On", "false");	//Landing
-		setDimmerStatus("39", "On", "false");	//Breakfast Room
-		setDimmerStatus("7", "On", "true");		//Down Hall
-		setDimmerStatus("8", "On", "true");		//Garage
-		setDimmerStatus("9", "On", "true");		//Entry
-		setDimmerStatus("10", "On", "true");	//Front Porch
-		setDimmerStatus("34", "On", "true");	//Dining Room
-		setDimmerStatus("36", "On", "true");	//Family Room
-		setDimmerStatus("38", "On", "true");	//Landing
-		setDimmerStatus("39", "On", "true");	//Breakfast Room
-	} elseif ($scene == "3"){
-		setDimmerStatus("7", "On", "false");	//Down Hall
-		setDimmerStatus("8", "Off", "false");	//Garage
-		setDimmerStatus("9", "On", "false");	//Entry
-		setDimmerStatus("10", "Off", "false");	//Front Porch
-		setDimmerStatus("34", "On", "false");	//Dining Room
-		setDimmerStatus("36", "On", "false");	//Family Room
-		setDimmerStatus("38", "On", "false");	//Landing
-		setDimmerStatus("39", "On", "false");	//Breakfast Room
-		setDimmerStatus("7", "On", "true");	//Down Hall
-		setDimmerStatus("8", "Off", "true");	//Garage
-		setDimmerStatus("9", "On", "true");	//Entry
-		setDimmerStatus("10", "Off", "true");	//Front Porch
-		setDimmerStatus("34", "On", "true");	//Dining Room
-		setDimmerStatus("36", "On", "true");	//Family Room
-		setDimmerStatus("38", "On", "true");	//Landing
-		setDimmerStatus("39", "On", "true");	//Breakfast Room
-	} elseif ($scene == "4"){
-		setDimmerStatus("7", "Off", "false");	//Down Hall
-		setDimmerStatus("8", "Off", "false");	//Garage
-		setDimmerStatus("9", "Off", "false");	//Entry
-		setDimmerStatus("10", "On", "false");	//Front Porch
-		setDimmerStatus("34", "Off", "false");	//Dining Room
-		setDimmerStatus("36", "Off", "false");	//Family Room
-		setDimmerStatus("38", "Off", "false");	//Landing
-		setDimmerStatus("39", "Off", "false");	//Breakfast Room
-		setDimmerStatus("7", "Off", "true");	//Down Hall
-		setDimmerStatus("8", "Off", "true");	//Garage
-		setDimmerStatus("9", "Off", "true");	//Entry
-		setDimmerStatus("10", "On", "true");	//Front Porch
-		setDimmerStatus("34", "Off", "true");	//Dining Room
-		setDimmerStatus("36", "Off", "true");	//Family Room
-		setDimmerStatus("38", "Off", "true");	//Landing
-		setDimmerStatus("39", "Off", "true");	//Breakfast Room
-	} elseif ($scene == "5"){
-		setDimmerStatus("7", "Set%20Level", "false", "11");	//Down Hall
-		setDimmerStatus("8", "Off", "false");	//Garage
-		setDimmerStatus("9", "Off", "false");	//Entry
-		setDimmerStatus("10", "On", "false");	//Front Porch
-		setDimmerStatus("34", "Set%20Level", "false", "11");	//Dining Room
-		setDimmerStatus("36", "Set%20Level", "false", "11");	//Family Room
-		setDimmerStatus("38", "Off", "false");	//Landing
-		setDimmerStatus("39", "Set%20Level", "false", "26");	//Breakfast Room
-		setDimmerStatus("7", "Set%20Level", "true", "11");	//Down Hall
-		setDimmerStatus("8", "Off", "true");	//Garage
-		setDimmerStatus("9", "Off", "true");	//Entry
-		setDimmerStatus("10", "On", "true");	//Front Porch
-		setDimmerStatus("34", "Set%20Level", "true", "11");	//Dining Room
-		setDimmerStatus("36", "Set%20Level", "true", "11");	//Family Room
-		setDimmerStatus("38", "Off", "true");	//Landing
-		setDimmerStatus("39", "Set%20Level", "true", "26");	//Breakfast Room
-	} elseif ($scene == "6"){
-		setDimmerStatus("7", "On", "false");	//Down Hall
-		setDimmerStatus("8", "Off", "false");	//Garage
-		setDimmerStatus("9", "Set%20Level", "false", "81");	//Entry
-		setDimmerStatus("10", "On", "false");	//Front Porch
-		setDimmerStatus("34", "Set%20Level", "false", "81");	//Dining Room
-		setDimmerStatus("36", "On", "false");	//Family Room
-		setDimmerStatus("38", "On", "false");	//Landing
-		setDimmerStatus("39", "On", "false");	//Breakfast Room
-		setDimmerStatus("7", "On", "true");	//Down Hall
-		setDimmerStatus("8", "Off", "true");	//Garage
-		setDimmerStatus("9", "Set%20Level", "true", "81");	//Entry
-		setDimmerStatus("10", "On", "true");	//Front Porch
-		setDimmerStatus("34", "Set%20Level", "true", "81");	//Dining Room
-		setDimmerStatus("36", "On", "true");	//Family Room
-		setDimmerStatus("38", "On", "true");	//Landing
-		setDimmerStatus("39", "On", "true");	//Breakfast Room
-	}
+	$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchscene&idx=" . $scene . "&switchcmd=On");
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	$statusResult = json_decode(curl_exec($curl), true);
+	curl_close($curl);
+	
 }
 
 ?>
