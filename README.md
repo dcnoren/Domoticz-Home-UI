@@ -4,7 +4,8 @@ WARNING - READ SECTION 3.0 BEFORE PROCEEDING
 1.0 SETUP
 ===
 
-1.1 Unzip into a directory of an Apache/PHP server. Modify ajax/config_default.php to suit your needs, and RENAME to config.php. 
+1.1 Unzip into a directory of an Apache/PHP server. Modify ajax/config_default.php to suit your needs, and RENAME to config.php.
+1.2 You may need to modify the criteria for 'light switches' and 'fans' and 'doors', in the functions.php page. Right now, it will only pull in Z-Wave light switches, and and doors that have the name "door" in them.
 
 
 ===
