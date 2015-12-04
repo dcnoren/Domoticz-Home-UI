@@ -229,130 +229,6 @@ function getAllStatus($md5_only){
 		
 	}
 	
-	/**
-	//Scenes
-	$ajax["scenes"]["1"]["Name"] = "All Off";
-	$ajax["scenes"]["1"]["Status"] = "Deactivated";
-	$ajax["scenes"]["2"]["Name"] = "All Full";
-	$ajax["scenes"]["2"]["Status"] = "Deactivated";
-	$ajax["scenes"]["3"]["Name"] = "Inside Full";
-	$ajax["scenes"]["3"]["Status"] = "Deactivated";
-	$ajax["scenes"]["4"]["Name"] = "Night Away";
-	$ajax["scenes"]["4"]["Status"] = "Deactivated";
-	$ajax["scenes"]["5"]["Name"] = "Movie";
-	$ajax["scenes"]["5"]["Status"] = "Deactivated";
-	$ajax["scenes"]["6"]["Name"] = "Entertaining";
-	$ajax["scenes"]["6"]["Status"] = "Deactivated";
-	**/
-	/**
-	7 = Down Hall
-	8 = Garage
-	9 = Entry
-	10 = Front Porch
-	34 = Dining Room
-	36 = Family Room
-	38 = Landing
-	39 = Breakfast Room
-	($ajax["lights"]["6"]["Level"] == "10")
-	($ajax["lights"]["6"]["Status"] == "Transition")
-	**/
-	
-	/**
-	//Scene 1 - All Off
-	if (
-			($ajax["lights"]["7"]["Status"] == "Off")	//Down Hall
-		&&	($ajax["lights"]["8"]["Status"] == "Off")	//Garage
-		&&	($ajax["lights"]["9"]["Status"] == "Off")	//Entry
-		&&	($ajax["lights"]["10"]["Status"] == "Off")	//Front Porch
-		&&	($ajax["lights"]["34"]["Status"] == "Off")	//Dining Room
-		&&	($ajax["lights"]["36"]["Status"] == "Off")	//Family Room
-		&&	($ajax["lights"]["38"]["Status"] == "Off")	//Landing
-		&&	($ajax["lights"]["39"]["Status"] == "Off")	//Breakfast Room
-		)	
-	{
-		$ajax["scenes"]["1"]["Status"] = "Activated";
-	}
-	//Scene 2 - All Full
-	elseif (
-			($ajax["lights"]["7"]["Status"] == "On")	//Down Hall
-		&&	($ajax["lights"]["8"]["Status"] == "On")	//Garage
-		&&	($ajax["lights"]["9"]["Status"] == "On")	//Entry
-		&&	($ajax["lights"]["10"]["Status"] == "On")	//Front Porch
-		&&	($ajax["lights"]["34"]["Status"] == "On")	//Dining Room
-		&&	($ajax["lights"]["36"]["Status"] == "On")	//Family Room
-		&&	($ajax["lights"]["38"]["Status"] == "On")	//Landing
-		&&	($ajax["lights"]["39"]["Status"] == "On")	//Breakfast Room
-		)
-	{
-		$ajax["scenes"]["2"]["Status"] = "Activated";
-	}
-	//Scene 3 - Inside Full
-	elseif (
-			($ajax["lights"]["7"]["Status"] == "On")	//Down Hall
-		&&	($ajax["lights"]["8"]["Status"] == "Off")	//Garage
-		&&	($ajax["lights"]["9"]["Status"] == "On")	//Entry
-		&&	($ajax["lights"]["10"]["Status"] == "Off")	//Front Porch
-		&&	($ajax["lights"]["34"]["Status"] == "On")	//Dining Room
-		&&	($ajax["lights"]["36"]["Status"] == "On")	//Family Room
-		&&	($ajax["lights"]["38"]["Status"] == "On")	//Landing
-		&&	($ajax["lights"]["39"]["Status"] == "On")	//Breakfast Room
-		)
-	{
-		$ajax["scenes"]["3"]["Status"] = "Activated";
-	}
-	//Scene 4 - Night Away
-	elseif (
-			($ajax["lights"]["7"]["Status"] == "Off")	//Down Hall
-		&&	($ajax["lights"]["8"]["Status"] == "Off")	//Garage
-		&&	($ajax["lights"]["9"]["Status"] == "Off")	//Entry
-		&&	($ajax["lights"]["10"]["Status"] == "On")	//Front Porch
-		&&	($ajax["lights"]["34"]["Status"] == "Off")	//Dining Room
-		&&	($ajax["lights"]["36"]["Status"] == "Off")	//Family Room
-		&&	($ajax["lights"]["38"]["Status"] == "Off")	//Landing
-		&&	($ajax["lights"]["39"]["Status"] == "Off")	//Breakfast Room
-		)
-	{
-		$ajax["scenes"]["4"]["Status"] = "Activated";
-	}
-	//Scene 5 - Movie
-	elseif (
-			($ajax["lights"]["7"]["Status"] == "Transition")	//Down Hall
-			&& ($ajax["lights"]["7"]["Level"] == "10")
-		&&	($ajax["lights"]["8"]["Status"] == "Off")	//Garage
-		&&	($ajax["lights"]["9"]["Status"] == "Off")	//Entry
-		&&	($ajax["lights"]["10"]["Status"] == "On")	//Front Porch
-		&&	($ajax["lights"]["34"]["Status"] == "Transition")	//Dining Room
-			&& ($ajax["lights"]["34"]["Level"] == "10")
-		&&	($ajax["lights"]["36"]["Status"] == "Transition")	//Family Room
-			&& ($ajax["lights"]["36"]["Level"] == "10")
-		&&	($ajax["lights"]["38"]["Status"] == "Off")	//Landing
-		&&	($ajax["lights"]["39"]["Status"] == "Transition")	//Breakfast Room
-			&& ($ajax["lights"]["39"]["Level"] == "25")
-		)
-	{
-		$ajax["scenes"]["5"]["Status"] = "Activated";
-	}
-	//Scene 6 - Entertaining
-	elseif (
-			($ajax["lights"]["7"]["Status"] == "On")	//Down Hall
-		&&	($ajax["lights"]["8"]["Status"] == "Off")	//Garage
-		&&	($ajax["lights"]["9"]["Status"] == "On")	//Entry
-			&& ($ajax["lights"]["9"]["Level"] == "80")
-		&&	($ajax["lights"]["10"]["Status"] == "On")	//Front Porch
-		&&	($ajax["lights"]["34"]["Status"] == "On")	//Dining Room
-			&& ($ajax["lights"]["34"]["Level"] == "80")
-		&&	($ajax["lights"]["36"]["Status"] == "On")	//Family Room
-		&&	($ajax["lights"]["38"]["Status"] == "On")	//Landing
-		&&	($ajax["lights"]["39"]["Status"] == "On")	//Breakfast Room
-		)
-	{
-		$ajax["scenes"]["6"]["Status"] = "Activated";
-	}
-	
-	**/
-	
-	
-	
 	
 	$md5 = md5(print_r($ajax, true));
 	
@@ -381,6 +257,13 @@ function setSceneStatus($scene){
 	$statusResult = json_decode(curl_exec($curl), true);
 	curl_close($curl);
 	
+	sleep(1);
+	
+	$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchscene&idx=" . $scene . "&switchcmd=On");
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	$statusResult = json_decode(curl_exec($curl), true);
+	curl_close($curl);
+	
 	sleep(2);
 	
 	$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchscene&idx=" . $scene . "&switchcmd=On");
@@ -388,6 +271,7 @@ function setSceneStatus($scene){
 	$statusResult = json_decode(curl_exec($curl), true);
 	curl_close($curl);
 	
+	/**
 	sleep(1);
 	
 	$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchscene&idx=" . $scene . "&switchcmd=On");
