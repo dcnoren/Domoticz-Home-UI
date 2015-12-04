@@ -434,28 +434,28 @@ function setSceneStatus($scene){
 		
 		$running = null;
 		do {
-			curl_multi_exec($cm, $running);
+			curl_multi_select($cm, $running);
 		} while ($running);
 		
 		sleep(1);
 		
 		$running = null;
 		do {
-			curl_multi_exec($cm, $running);
+			curl_multi_select($cm, $running);
 		} while ($running);
 		
 		sleep(2);
 		
 		$running = null;
 		do {
-			curl_multi_exec($cm, $running);
+			curl_multi_select($cm, $running);
 		} while ($running);
 		
 		sleep(1);
 		
 		$running = null;
 		do {
-			curl_multi_exec($cm, $running);
+			curl_multi_select($cm, $running);
 		} while ($running);
 		
 		curl_multi_close($cm);
