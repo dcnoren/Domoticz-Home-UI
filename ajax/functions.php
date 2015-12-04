@@ -1,5 +1,5 @@
 <?php
-
+//Pull in configurations
 require('config.php');
 
 
