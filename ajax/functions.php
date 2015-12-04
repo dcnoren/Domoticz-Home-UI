@@ -403,11 +403,11 @@ function setSceneStatus($scene){
 			"setting" => "Off",
 			"percent" => "100"
 		);
-		$scene[] = array(
-			"idx" => "34",
-			"setting" => "Off",
-			"percent" => "100"
-		);
+		//$scene[] = array(
+		//	"idx" => "34",
+		//	"setting" => "Off",
+		//	"percent" => "100"
+		//);
 		$scene[] = array(
 			"idx" => "36",
 			"setting" => "Off",
