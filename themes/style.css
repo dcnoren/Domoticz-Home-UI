@@ -1,0 +1,78 @@
+* {
+margin: 0;
+padding: 0;
+}
+
+.ui-block-b {
+	padding-right: 5px;
+	padding-top: 5px;
+}
+
+.On {
+	background-color: #dda22e;
+	background-image: url("../images/bulb_on.png");
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
+
+.Transition {
+	background-color: #5e440f;
+	background-image: url("../images/bulb_t.png");
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
+
+.Off {
+	background-image: url("../images/bulb_off.png");
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
+
+#lightBoard {
+	font-size: 90%;
+}
+
+#doorBoard {
+	font-size: 90%;
+}
+
+#scenesBoard {
+	font-size: 90%;
+}
+
+#fanBoard {
+	font-size: 90%;
+}
+
+.Closed {
+	background-image: url("../images/door_closed.png");
+	background-size: 36px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
+
+.Open {
+	background-color: #dd4a2e;
+	background-image: url("../images/door_open.png");
+	background-size: 36px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
+
+.Deactivated {
+	background-image: url("../images/scene_deactivated.png");
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
+
+.Activated {
+	background-color: #2e6add;
+	background-image: url("../images/scene_activated.png");
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
