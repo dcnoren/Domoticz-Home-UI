@@ -1,15 +1,15 @@
 WARNING - READ SECTION 3.0 BEFORE PROCEEDING
 
-====
+===
 1.0 SETUP
-====
+===
 
 1.1 Unzip into a directory of an Apache/PHP server. Modify ajax/config_default.php to suit your needs, and RENAME to config.php. 
 
 
-====
+===
 2.0 ACTIONS
-====
+===
 
 If you wish to have if/then type functionality, the PHP script "ajax/connector.php" is the script that handles all functionality. You must call it via Domoticz by entering on/off actions for various devices. Currently, you must have PIR or other motion sensors for this to work, and/or doors.
 
@@ -28,8 +28,8 @@ If you wish to have if/then type functionality, the PHP script "ajax/connector.p
 2.7 Modify ajax/functions.php to change scenes. Basically, the scenes allow for describing what the scene is, and setting the scene. Future updates will make this much easier, and abstract this functionality. Notice the mis-match in dimmer switch settings - this is due to a Domoticz issue. Be careful with this functionality out of the box, as it will be unpredictable in your environment. Further updates will allow a scene definition file so the code and scene definitions are separated.
 
 
-====
+===
 3.0 TODO
-====
+===
 
 This is basically a snap-shop of my configuration, including scenes and connectors, etc. Scenes will not work and may cause unpredictable results in your house (i.e. I do not know what will happen if the scripts attempts to turn on your sprinkler system, fire alarm, or any other device if you do not appropriately modify the scenes section of this script. PROCEED AT YOUR OWN RISK!!!!
