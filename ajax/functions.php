@@ -446,7 +446,7 @@ function setSceneStatus($scene){
 		do {
 			curl_multi_exec($cm, $running);
 		} while ($running);
-		curl_close($cm);
+		curl_multi_close($cm);
 		
 	} elseif ($scene == "2"){
 		setDimmerStatus("7", "On", "false");	//Down Hall
