@@ -427,7 +427,7 @@ function setSceneStatus($scene){
 		$cm = curl_multi_init();
 		
 		foreach ($scene as $sceneSet){
-			$ch = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=$sceneSet['idx']&switchcmd=$sceneSet['setting']");
+			$ch = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=" . $sceneSet['idx'] . "&switchcmd=" . $sceneSet['setting']);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_multi_add_handle($cm, $ch);
 		}
