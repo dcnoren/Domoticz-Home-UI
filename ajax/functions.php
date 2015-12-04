@@ -444,14 +444,14 @@ function setSceneStatus($scene){
 			curl_multi_exec($cm, $running);
 		} while ($running);
 		
-		sleep(2);
+		sleep(3);
 		
 		$running = null;
 		do {
 			curl_multi_exec($cm, $running);
 		} while ($running);
 		
-		sleep(1);
+		sleep(3);
 		
 		$running = null;
 		do {
