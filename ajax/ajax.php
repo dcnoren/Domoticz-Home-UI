@@ -40,7 +40,7 @@ if ($action == "getLightStatus"){
 	$result = getLightStatus("false");
 	echo $result;
 } elseif ($action == "setDimmerStatus"){
-	$result = setDimmerStatus($idx, $command, "true");
+	$result = setDimmerStatus($idx, $command, "true", 100);
 	echo $result;
 } elseif ($action == "setStatus"){
 	$result = setStatus($idx, $command, "true");
