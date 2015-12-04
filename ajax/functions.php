@@ -381,6 +381,27 @@ function setSceneStatus($scene){
 	$statusResult = json_decode(curl_exec($curl), true);
 	curl_close($curl);
 	
+	sleep(3);
+	
+	$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchscene&idx=" . $scene . "&switchcmd=On");
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	$statusResult = json_decode(curl_exec($curl), true);
+	curl_close($curl);
+	
+	sleep(3);
+	
+	$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchscene&idx=" . $scene . "&switchcmd=On");
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	$statusResult = json_decode(curl_exec($curl), true);
+	curl_close($curl);
+	
+	sleep(3);
+	
+	$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchscene&idx=" . $scene . "&switchcmd=On");
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	$statusResult = json_decode(curl_exec($curl), true);
+	curl_close($curl);
+	
 }
 
 ?>
