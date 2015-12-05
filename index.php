@@ -23,6 +23,7 @@
 		</ul>
 	</div><!-- /navbar -->
 	
+	
 	<div data-role="header">
 		<h1> Light Switches </h1>
 	</div><!-- /header -->
@@ -42,40 +43,6 @@
 		</div><!-- /grid-d -->
 	</div><!-- /content -->
 	
-	
-	<div data-role="header">
-		<h1> Doors </h1>
-	</div><!-- /header -->
-	
-	<div data-role="content">	
-		<div id="doorBoard" class="ui-grid-d">
-		</div><!-- /grid-d -->
-	</div><!-- /content -->
-
-	<div data-role="footer">
-		<h4>&nbsp;</h4>
-	</div><!-- /footer -->
-</div><!-- /page -->
-
-
-<div data-role="page" id="scenes">
-
-	<div data-role="navbar">
-		<ul>
-			<li><a href="#lightsdoors">Lights / Doors</a></li>
-			<li><a href="#security">Security</a></li>
-			<li><a class="ui-disabled" href="#scenes">Scenes</a></li>
-		</ul>
-	</div><!-- /navbar -->
-	
-	<div data-role="header">
-		<h1> Scenes </h1>
-	</div><!-- /header -->
-
-	<div data-role="content">	
-		<div id="scenesBoard" class="ui-grid-d">
-		</div><!-- /grid-d -->
-	</div><!-- /content -->
 
 	<div data-role="footer">
 		<h4>&nbsp;</h4>
@@ -103,11 +70,47 @@
 		</div><!-- /grid-d -->
 	</div><!-- /content -->
 
+	
+	<div data-role="header">
+		<h1> Doors </h1>
+	</div><!-- /header -->
+	
+	<div data-role="content">	
+		<div id="doorBoard" class="ui-grid-d">
+		</div><!-- /grid-d -->
+	</div><!-- /content -->
+	
+	
 	<div data-role="footer">
 		<h4>&nbsp;</h4>
 	</div><!-- /footer -->
 </div><!-- /page -->
 
+
+
+<div data-role="page" id="scenes">
+
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#lightsdoors">Lights / Doors</a></li>
+			<li><a href="#security">Security</a></li>
+			<li><a class="ui-disabled" href="#scenes">Scenes</a></li>
+		</ul>
+	</div><!-- /navbar -->
+	
+	<div data-role="header">
+		<h1> Scenes </h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<div id="scenesBoard" class="ui-grid-d">
+		</div><!-- /grid-d -->
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>&nbsp;</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
 
 
 </body>
