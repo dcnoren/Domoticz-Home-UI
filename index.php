@@ -13,104 +13,127 @@
 	<link rel="stylesheet" href="themes/style.css" />
 </head>
 <body>
-<div data-role="page" id="lightsdoors">
 
-	<div data-role="navbar">
-		<ul>
-			<li><a class="ui-disabled" href="#lightsdoors">Lights / Doors</a></li>
-			<li><a href="#security">Security</a></li>
-			<li><a href="#scenes">Scenes</a></li>
-		</ul>
-	</div><!-- /navbar -->
-	
-	
-	<div data-role="header">
-		<h1> Light Switches </h1>
-	</div><!-- /header -->
+<!-- lighting page -->
+	<div data-role="page" id="lightsdoors">
 
-	<div data-role="content">	
-		<div id="lightBoard" class="ui-grid-d">
-		</div><!-- /grid-d -->
-	</div><!-- /content -->
-	
-	
-	<div data-role="header">
-		<h1> Fans </h1>
-	</div><!-- /header -->
+		<!-- navbar -->
+			<div data-role="navbar">
+				<ul>
+					<li><a class="ui-disabled" href="#lightsdoors">Lights / Doors</a></li>
+					<li><a href="#security">Security</a></li>
+					<li><a href="#scenes">Scenes</a></li>
+				</ul>
+			</div>
+		<!-- /navbar -->
 
-	<div data-role="content">	
-		<div id="fanBoard" class="ui-grid-d">
-		</div><!-- /grid-d -->
-	</div><!-- /content -->
-	
+		<!-- lighting -->
+			<div data-role="header">
+				<h1> Light Switches </h1>
+			</div><!-- /header -->
 
-	<div data-role="footer">
-		<h4>&nbsp;</h4>
-	</div><!-- /footer -->
-</div><!-- /page -->
+			<div data-role="content">	
+				<div id="lightBoard" class="ui-grid-d">
+				</div><!-- /grid-d -->
+			</div><!-- /content -->
+		<!-- /lighting -->
 
+		<!-- fans -->
+			<div data-role="header">
+				<h1> Fans </h1>
+			</div><!-- /header -->
 
+			<div data-role="content">	
+				<div id="fanBoard" class="ui-grid-d">
+				</div><!-- /grid-d -->
+			</div><!-- /content -->
+		<!-- /fans -->
 
-<div data-role="page" id="security">
+		<!-- footer -->
+			<div data-role="footer">
+				<h4>&nbsp;</h4>
+			</div>
+		<!-- /footer -->
 
-	<div data-role="navbar">
-		<ul>
-			<li><a href="#lightsdoors">Lights / Doors</a></li>
-			<li><a class="ui-disabled" href="#security">Security</a></li>
-			<li><a href="#scenes">Scenes</a></li>
-		</ul>
-	</div><!-- /navbar -->
-	
-	<div data-role="header">
-		<h1> Security </h1>
-	</div><!-- /header -->
-
-	<div data-role="content">	
-		<div id="securityBoard" class="ui-grid-d">
-		</div><!-- /grid-d -->
-	</div><!-- /content -->
-
-	
-	<div data-role="header">
-		<h1> Doors </h1>
-	</div><!-- /header -->
-	
-	<div data-role="content">	
-		<div id="doorBoard" class="ui-grid-d">
-		</div><!-- /grid-d -->
-	</div><!-- /content -->
-	
-	
-	<div data-role="footer">
-		<h4>&nbsp;</h4>
-	</div><!-- /footer -->
-</div><!-- /page -->
+	</div>
+<!-- /lighting page -->
 
 
+<!-- security page -->
+	<div data-role="page" id="security">
 
-<div data-role="page" id="scenes">
+		<!-- navbar -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#lightsdoors">Lights / Doors</a></li>
+					<li><a class="ui-disabled" href="#security">Security</a></li>
+					<li><a href="#scenes">Scenes</a></li>
+				</ul>
+			</div>
+		<!-- /navbar -->
 
-	<div data-role="navbar">
-		<ul>
-			<li><a href="#lightsdoors">Lights / Doors</a></li>
-			<li><a href="#security">Security</a></li>
-			<li><a class="ui-disabled" href="#scenes">Scenes</a></li>
-		</ul>
-	</div><!-- /navbar -->
-	
-	<div data-role="header">
-		<h1> Scenes </h1>
-	</div><!-- /header -->
+		<!-- security -->
+			<div data-role="header">
+				<h1> Security </h1>
+			</div><!-- /header -->
 
-	<div data-role="content">	
-		<div id="scenesBoard" class="ui-grid-d">
-		</div><!-- /grid-d -->
-	</div><!-- /content -->
+			<div data-role="content">	
+				<div id="securityBoard" class="ui-grid-d">
+				</div><!-- /grid-d -->
+			</div><!-- /content -->
+		<!-- /security -->
 
-	<div data-role="footer">
-		<h4>&nbsp;</h4>
-	</div><!-- /footer -->
-</div><!-- /page -->
+		<!-- doors -->
+			<div data-role="header">
+				<h1> Doors </h1>
+			</div><!-- /header -->
+
+			<div data-role="content">	
+				<div id="doorBoard" class="ui-grid-d">
+				</div><!-- /grid-d -->
+			</div><!-- /content -->
+		<!-- /doors -->
+
+		<!-- footer -->
+			<div data-role="footer">
+				<h4>&nbsp;</h4>
+			</div>
+		<!-- /footer -->
+	</div>
+<!-- /security page -->
+
+
+<!-- scenes page -->
+	<div data-role="page" id="scenes">
+
+		<!-- navbar -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#lightsdoors">Lights / Doors</a></li>
+					<li><a href="#security">Security</a></li>
+					<li><a class="ui-disabled" href="#scenes">Scenes</a></li>
+				</ul>
+			</div>
+		<!-- /navbar -->
+
+		<!-- scenes -->
+			<div data-role="header">
+				<h1> Scenes </h1>
+			</div><!-- /header -->
+
+			<div data-role="content">	
+				<div id="scenesBoard" class="ui-grid-d">
+				</div><!-- /grid-d -->
+			</div><!-- /content -->
+		<!-- /scenes -->
+
+		<!-- footer -->
+			<div data-role="footer">
+				<h4>&nbsp;</h4>
+			</div>
+		<!-- /footer -->
+	</div>
+<!-- /scenes page -->
 
 
 </body>
