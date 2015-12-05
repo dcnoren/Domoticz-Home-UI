@@ -228,7 +228,9 @@ function getAllStatus($md5_only){
 		
 		$ajax["scenes"][$v3["idx"]]["Name"] = $v3["Name"];
 		
-		if (!strpos($v3["Description"], $md5Lights)){
+		$pos = strpos($v3["Description"], $md5Lights);
+		
+		if ($pos === false){
 			$ajax["scenes"][$v3["idx"]]["Status"] = "Deactivated";
 		} else {
 			$ajax["scenes"][$v3["idx"]]["Status"] = "Activated";
