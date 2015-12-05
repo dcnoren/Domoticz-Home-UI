@@ -17,7 +17,7 @@ padding: 0;
 }
 
 .light.Transition {
-	background-color: #c49d50;
+	background-color: #d09622;
 	background-image: url("../images/bulb_t.png");
 	background-size: 50px 50px;
 	background-repeat: no-repeat;
@@ -32,7 +32,7 @@ padding: 0;
 }
 
 .fan.On {
-	background-color: #77dd2e;
+	background-color: #009900;
 	background-image: url("../images/fan_on.png");
 	background-size: 50px 50px;
 	background-repeat: no-repeat;
@@ -40,7 +40,7 @@ padding: 0;
 }
 
 .fan.Transition {
-	background-color: #80c450;
+	background-color: #006600;
 	background-image: url("../images/fan_t.png");
 	background-size: 50px 50px;
 	background-repeat: no-repeat;
