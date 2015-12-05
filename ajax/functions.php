@@ -231,7 +231,7 @@ function getAllStatus($md5_only){
 		if ($ajax["scenes"][$v3["idx"]]["Description"] == $md5Lights){
 			$ajax["scenes"][$v3["idx"]]["Status"] = "Activated";
 		} else {
-			$ajax["scenes"][$v3["idx"]]["Status"] = "Deactivated";
+			$ajax["scenes"][$v3["idx"]]["Status"] = $ajax["scenes"][$v3["idx"]]["Description"];
 		}
 		
 		
