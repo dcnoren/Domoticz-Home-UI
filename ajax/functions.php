@@ -192,7 +192,12 @@ function getAllStatus($md5_only){
 				$ajax["lights"][$v2["idx"]]["Status"] = $v2["Status"];
 			}
 			
-			$ajax["lights"][$v2["idx"]]["Level"] = $v2["Level"];
+			if ($v2["Status"] == "Off"){
+				$ajax["lights"][$v2["idx"]]["Level"] = $v2["Level"];
+			} else {
+				$ajax["lights"][$v2["idx"]]["Level"] = "0";
+			}
+			
 			$ajax["lights"][$v2["idx"]]["Type"] = $v2["Type"];
 			$ajax["lights"][$v2["idx"]]["Name"] = $v2["Name"];
 		}
