@@ -184,7 +184,7 @@ function getAllStatus($md5_only){
 		$statusType = $v2["Type"];
 		$statusHardware = $v2["HardwareName"];
 		$statusName = $v2["Name"];
-		if (($statusType == "Lighting 1" OR $statusType == "Lighting 2") AND (strpos($statusName,"Aux") == false) AND (strpos($statusName,"Fan") == false) AND ($statusHardware == "Z-Wave")){
+		if (($statusType == "Lighting 1" OR $statusType == "Lighting 2") AND (strpos($statusName,"Aux") == false) AND (strpos($statusName,"Bath") == false) AND (strpos($statusName,"Fan") == false) AND ($statusHardware == "Z-Wave")){
 			
 			if(strpos($v2["Status"],"Set") !== false){
 				$ajax["lights"][$v2["idx"]]["Status"] = "Transition";
@@ -210,7 +210,7 @@ function getAllStatus($md5_only){
 		$statusType = $v2["Type"];
 		$statusHardware = $v2["HardwareName"];
 		$statusName = $v2["Name"];
-		if ((strpos($statusName,"Fan") == true) AND ($statusHardware == "Z-Wave")){
+		if ((strpos($statusName,"Fan") == true) AND (strpos($statusName,"Bath") == false) AND ($statusHardware == "Z-Wave")){
 			
 			if(strpos($v2["Status"],"Set") !== false){
 				$ajax["fans"][$v2["idx"]]["Status"] = "Transition";
