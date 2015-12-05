@@ -227,7 +227,13 @@ function getAllStatus($md5_only){
 	foreach ($sceneResult["result"] as $i3=>$v3){
 		
 		$ajax["scenes"][$v3["idx"]]["Name"] = $v3["Name"];
-		$ajax["scenes"][$v3["idx"]]["Status"] = "Deactivated";
+		
+		if (!strpos($ajax["scenes"][$v3["idx"]]["Description"])){
+			$ajax["scenes"][$v3["idx"]]["Status"] = "Deactivated";
+		} else {
+			$ajax["scenes"][$v3["idx"]]["Status"] = "Activated";
+		}
+		
 		
 	}
 	
