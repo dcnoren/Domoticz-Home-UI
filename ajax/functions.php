@@ -228,10 +228,10 @@ function getAllStatus($md5_only){
 		
 		$ajax["scenes"][$v3["idx"]]["Name"] = $v3["Name"];
 		
-		if (!strpos($ajax["scenes"][$v3["idx"]]["Description"], $md5Lights)){
-			$ajax["scenes"][$v3["idx"]]["Status"] = "Deactivated";
-		} else {
+		if ($ajax["scenes"][$v3["idx"]]["Description"] == $md5Lights){
 			$ajax["scenes"][$v3["idx"]]["Status"] = "Activated";
+		} else {
+			$ajax["scenes"][$v3["idx"]]["Status"] = "Deactivated";
 		}
 		
 		
