@@ -9,7 +9,7 @@ padding: 0;
 }
 
 .light.On {
-	background-color: #dda32e;
+	background-color: #dda22e;
 	background-image: url("../images/bulb_on.png");
 	background-size: 50px 50px;
 	background-repeat: no-repeat;
@@ -17,7 +17,7 @@ padding: 0;
 }
 
 .light.Transition {
-	background-color: #d09622;
+	background-color: #5e440f;
 	background-image: url("../images/bulb_t.png");
 	background-size: 50px 50px;
 	background-repeat: no-repeat;
@@ -32,7 +32,7 @@ padding: 0;
 }
 
 .fan.On {
-	background-color: #009900;
+	background-color: #4BBB27;
 	background-image: url("../images/fan_on.png");
 	background-size: 50px 50px;
 	background-repeat: no-repeat;
@@ -40,7 +40,7 @@ padding: 0;
 }
 
 .fan.Transition {
-	background-color: #006600;
+	background-color: #187200;
 	background-image: url("../images/fan_t.png");
 	background-size: 50px 50px;
 	background-repeat: no-repeat;
@@ -78,7 +78,7 @@ padding: 0;
 }
 
 .Open {
-	background-color: #dd4b2e;
+	background-color: #dd4a2e;
 	background-image: url("../images/door_open.png");
 	background-size: 36px 50px;
 	background-repeat: no-repeat;
