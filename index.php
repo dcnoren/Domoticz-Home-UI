@@ -4,12 +4,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Home Automation</title>
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/jquery.mobile.custom.min.js"></script>
 	<link rel="stylesheet" href="themes/controller.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.5.css" />
 	<link rel="stylesheet" href="themes/style.css" />
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/jquery.mobile.custom.min.js"></script>
 	<script>
 
 	
