@@ -31,6 +31,8 @@ If you wish to have if/then type functionality, the PHP script "ajax/connector.p
 
 2.7 Create any scenes you wish directly in Domoticz, and they will reflect on the UI. Groups not (yet) supported.
 
+2.8 If desired, you can program information in to the scene description to let the UI reflect when a scene is activated. To do so, you need the MD5 hash of the current light status, which is generally easy to do - as I give it to you in the ajax call. After creating some scenes, click on a scene button in the UI to activate the scene. Then, visit http://example.com/home-automation/ajax/ajax.php?action=getAllStatus and look for the JSON value for the "lightd5" key. Copy that value, which is 32 characters (do not include quotation marks), and enter that into the description for the scene on Domoticz. Once you save the scene, any time the scene is active, you will see it selected.
+
 ===
 3.0 TODO
 ===
