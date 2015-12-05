@@ -198,6 +198,8 @@ function getAllStatus($md5_only){
 		}
 	}
 	
+	$md5Lights = md5(print_r($ajax["lights"], true));
+	
 	//Fans
 	foreach ($result["result"] as $i2=>$v2){
 		$statusType = $v2["Type"];
@@ -225,7 +227,15 @@ function getAllStatus($md5_only){
 	foreach ($sceneResult["result"] as $i3=>$v3){
 		
 		$ajax["scenes"][$v3["idx"]]["Name"] = $v3["Name"];
-		$ajax["scenes"][$v3["idx"]]["Status"] = "Deactivated";
+		
+		$pos = strpos($v3["Description"], $md5Lights);
+		
+		if ($pos === false){
+			$ajax["scenes"][$v3["idx"]]["Status"] = "Deactivated";
+		} else {
+			$ajax["scenes"][$v3["idx"]]["Status"] = "Activated";
+		}
+		
 		
 	}
 	
@@ -237,6 +247,8 @@ function getAllStatus($md5_only){
 	} else {
 		$ajax["meta"]["md5"] = $md5;
 		$meta["meta"]["md5"] = $md5;
+		$ajax["meta"]["lightd5"] = $md5Lights;
+		$meta["meta"]["lightd5"] = $md5Lights;
 		$timestamp = timestamp();
 		$ajax["meta"]["timestamp"] = $timestamp;
 		$meta["meta"]["timestamp"] = $timestamp;
