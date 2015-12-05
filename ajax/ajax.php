@@ -9,6 +9,7 @@ if (isset($_GET["action"])){
 $idx = "";
 if (isset($_GET["idx"])){
 	$idx = $_GET["idx"];
+	$idx = filter_var($idx, FILTER_SANITIZE_NUMBER_INT);
 }
 
 $command = "";
@@ -24,11 +25,13 @@ if (isset($_GET["md5"])){
 $scene = "";
 if (isset($_GET["scene"])){
 	$scene = $_GET["scene"];
+	$scene = filter_var($scene, FILTER_SANITIZE_NUMBER_INT);
 }
 
 $level = "100";
 if (isset($_GET["level"])){
 	$level = $_GET["level"];
+	$level = filter_var($level, FILTER_SANITIZE_NUMBER_INT);
 }
 
 if ($action == "getLightStatus"){

@@ -3,34 +3,6 @@ margin: 0;
 padding: 0;
 }
 
-.ui-block-b {
-	padding-right: 5px;
-	padding-top: 5px;
-}
-
-.On {
-	background-color: #dda22e;
-	background-image: url("../images/bulb_on.png");
-	background-size: 50px 50px;
-	background-repeat: no-repeat;
-	background-position: 50% 80%;
-}
-
-.Transition {
-	background-color: #5e440f;
-	background-image: url("../images/bulb_t.png");
-	background-size: 50px 50px;
-	background-repeat: no-repeat;
-	background-position: 50% 80%;
-}
-
-.Off {
-	background-image: url("../images/bulb_off.png");
-	background-size: 50px 50px;
-	background-repeat: no-repeat;
-	background-position: 50% 80%;
-}
-
 #lightBoard {
 	font-size: 90%;
 }
@@ -45,6 +17,57 @@ padding: 0;
 
 #fanBoard {
 	font-size: 90%;
+}
+
+.ui-block-b {
+	padding-right: 5px;
+	padding-top: 5px;
+}
+
+.light.On {
+	background-color: #dda22e;
+	background-image: url("../images/bulb_on.png");
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
+
+.light.Transition {
+	background-color: #5e440f;
+	background-image: url("../images/bulb_t.png");
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
+
+.light.Off {
+	background-image: url("../images/bulb_off.png");
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
+
+.fan.On {
+	background-color: #4BBB27;
+	background-image: url("../images/fan_on.png");
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
+
+.fan.Transition {
+	background-color: #327c1a;
+	background-image: url("../images/fan_t.png");
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
+
+.fan.Off {
+	background-image: url("../images/fan_off.png");
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
 }
 
 .Closed {
