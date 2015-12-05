@@ -193,9 +193,9 @@ function getAllStatus($md5_only){
 			}
 			
 			if ($v2["Status"] == "Off"){
-				$ajax["lights"][$v2["idx"]]["Level"] = $v2["Level"];
-			} else {
 				$ajax["lights"][$v2["idx"]]["Level"] = "0";
+			} else {
+				$ajax["lights"][$v2["idx"]]["Level"] = $v2["Level"];
 			}
 			
 			$ajax["lights"][$v2["idx"]]["Type"] = $v2["Type"];
