@@ -15,12 +15,12 @@
 <body>
 
 <!-- lighting page -->
-	<div data-role="page" id="lightsdoors">
+	<div data-role="page" id="lightsfans">
 
 		<!-- navbar -->
 			<div data-role="navbar">
 				<ul>
-					<li><a class="ui-disabled" href="#lightsdoors">Lights / Doors</a></li>
+					<li><a class="ui-disabled" href="#lightsfans">Lights / Fans</a></li>
 					<li><a href="#security">Security</a></li>
 					<li><a href="#scenes">Scenes</a></li>
 				</ul>
@@ -65,7 +65,7 @@
 		<!-- navbar -->
 			<div data-role="navbar">
 				<ul>
-					<li><a href="#lightsdoors">Lights / Doors</a></li>
+					<li><a href="#lightsfans">Lights / Doors</a></li>
 					<li><a class="ui-disabled" href="#security">Security</a></li>
 					<li><a href="#scenes">Scenes</a></li>
 				</ul>
@@ -109,7 +109,7 @@
 		<!-- navbar -->
 			<div data-role="navbar">
 				<ul>
-					<li><a href="#lightsdoors">Lights / Doors</a></li>
+					<li><a href="#lightsfans">Lights / Doors</a></li>
 					<li><a href="#security">Security</a></li>
 					<li><a class="ui-disabled" href="#scenes">Scenes</a></li>
 				</ul>
