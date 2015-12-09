@@ -218,7 +218,7 @@ function getAllStatus($md5_only, $format){
 	}
 	
 	//Security - must enable this
-	if ($config["securityEnable"] = "Yes"){
+	if ($config["securityEnable"] == "Yes"){
 		foreach ($result["result"] as $i2=>$v2){
 			$statusType = $v2["Type"];
 			$statusHardware = $v2["Sub Type"];
