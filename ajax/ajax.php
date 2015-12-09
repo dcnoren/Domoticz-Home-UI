@@ -9,6 +9,9 @@ if (isset($_GET["action"])){
 $idx = "";
 if (isset($_GET["idx"])){
 	$idx = $_GET["idx"];
+	if ($idx == "SECURITY_ID"){
+		$idx = constant("SECURITY_ID");
+	}
 	$idx = filter_var($idx, FILTER_SANITIZE_NUMBER_INT);
 }
 
