@@ -220,32 +220,31 @@ function getAllStatus($md5_only, $format){
 	//Security - must enable this
 	if(defined('SECURITY_ENABLE')){
 		foreach ($result["result"] as $i2=>$v2){
-			$statusType = $v2["Type"];
-			$statusHardware = $v2["HardwareName"];
-			$statusName = $v2["Name"];
-			if ($statusHardware == "Unknown?" && $statusType == "Security"){
+			$security_idx = $v2["idx"];
+			if ($security_idx == SECURITY_ID){
+			
 				$securityStatus = $v2["Status"];
-			
-			
-			$ajax["security"]["Normal"]["idx"] = $v2["idx"];
-			$ajax["security"]["Arm Away"]["idx"] = $v2["idx"];
-			$ajax["security"]["Arm Home"]["idx"] = $v2["idx"];
-			
-			$ajax["security"]["Normal"]["Name"] = "Home";
-			$ajax["security"]["Normal"]["Status"] = "disabled";
-			$ajax["security"]["Arm Away"]["Name"] = "Arm Away";
-			$ajax["security"]["Arm Away"]["Status"] = "disabled";
-			$ajax["security"]["Arm Home"]["Name"] = "Arm Home";
-			$ajax["security"]["Arm Home"]["Status"] = "Disabled";
-			
-			if ($securityStatus == "Normal"){
-				$ajax["security"]["Normal"]["Status"] = "enabled";
-			} elseif ($securityStatus == "Arm Away"){
-				$ajax["security"]["Arm Away"]["Status"] = "enabled";
-			} elseif ($securityStatus == "Arm Home"){
-				$ajax["security"]["Arm Home"]["Status"] = "enabled";
+				
+				
+				$ajax["security"]["Normal"]["idx"] = $v2["idx"];
+				$ajax["security"]["Arm Away"]["idx"] = $v2["idx"];
+				$ajax["security"]["Arm Home"]["idx"] = $v2["idx"];
+				
+				$ajax["security"]["Normal"]["Name"] = "Home";
+				$ajax["security"]["Normal"]["Status"] = "disabled";
+				$ajax["security"]["Arm Away"]["Name"] = "Arm Away";
+				$ajax["security"]["Arm Away"]["Status"] = "disabled";
+				$ajax["security"]["Arm Home"]["Name"] = "Arm Home";
+				$ajax["security"]["Arm Home"]["Status"] = "Disabled";
+				
+				if ($securityStatus == "Normal"){
+					$ajax["security"]["Normal"]["Status"] = "enabled";
+				} elseif ($securityStatus == "Arm Away"){
+					$ajax["security"]["Arm Away"]["Status"] = "enabled";
+				} elseif ($securityStatus == "Arm Home"){
+					$ajax["security"]["Arm Home"]["Status"] = "enabled";
+				}
 			}
-		}
 			
 		}
 	}
