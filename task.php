@@ -3,6 +3,7 @@ require('ajax/functions.php');
 
 $getAllStatus = getAllStatus();
 
+$comfort = array();
 $comfort = $getAllStatus["comfort"];
 
 if (($comfort["43"] - $comfort["15"]) >= 10){
