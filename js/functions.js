@@ -31,6 +31,15 @@ $(document).ready(function(){
 				});
 				$('#doorBoard').html(doorItems).enhanceWithin();
 				}
+				
+				var securityItems = [];
+
+				if (data.security){
+				$.each(data.security, function(key, val) {
+					securityItems.push('<div class="ui-block-b"><div id="' + key + '" class="door ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+				});
+				$('#securityBoard').html(securityItems).enhanceWithin();
+				}
 
 				var sceneItems = [];
 

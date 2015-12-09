@@ -217,6 +217,20 @@ function getAllStatus($md5_only, $format){
 		}
 	}
 	
+	//Security - must enable this
+	if ($config["securityEnable"] = "Yes"){
+		foreach ($result["result"] as $i2=>$v2){
+			$statusType = $v2["Type"];
+			$statusHardware = $v2["Sub Type"];
+			$statusName = $v2["Name"];
+			if ($statusHardware == "Security Panel"){
+				$ajax["security"][$v2["idx"]]["Status"] = $v2["Status"];
+				$ajax["security"][$v2["idx"]]["Type"] = $v2["Type"];
+				$ajax["security"][$v2["idx"]]["Name"] = $v2["Name"];
+			}
+		}
+	}
+	
 	//Lights
 	foreach ($result["result"] as $i2=>$v2){
 		$statusType = $v2["Type"];
