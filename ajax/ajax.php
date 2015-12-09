@@ -84,6 +84,8 @@ if ($action == "getLightStatus"){
 	echo $result;
 } elseif ($action == "setSceneStatus"){
 	setSceneStatus($scene);
+} elseif ($action == "setSecurity"){
+	setSecurity($command);
 }
 
 ?>

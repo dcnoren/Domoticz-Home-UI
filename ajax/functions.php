@@ -41,13 +41,32 @@ function retAllStatus(){
 }
 
 function setStatus($idx, $cmd){
-	$url = DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=$idx&switchcmd=$cmd";
-	return $url;
 	$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=$idx&switchcmd=$cmd");
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 	$result = curl_exec($curl);
 	curl_close($curl);
-	//return "ok";
+	return "ok";
+}
+
+function setSecurity($status){
+	if ($status == "Disarm"){
+		$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=" . SECURITY_ID . "&switchcmd=Disarm");
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		$result = curl_exec($curl);
+		curl_close($curl);
+	}
+	if ($status == "ArmAway"){
+		$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=" . SECURITY_ID . "&switchcmd=Arm%20Away");
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		$result = curl_exec($curl);
+		curl_close($curl);
+	}
+	if ($status == "ArmHome"){
+		$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=" . SECURITY_ID . "&switchcmd=Arm%20Home");
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		$result = curl_exec($curl);
+		curl_close($curl);
+	}
 }
 
 function setDimmerStatus($idx, $cmd, $force, $level){
@@ -227,24 +246,19 @@ function getAllStatus($md5_only, $format){
 			
 				$securityStatus = $v2["Status"];
 				
-				
-				$ajax["security"]["Normal"]["idx"] = $v2["idx"];
-				$ajax["security"]["Arm Away"]["idx"] = $v2["idx"];
-				$ajax["security"]["Arm Home"]["idx"] = $v2["idx"];
-				
 				$ajax["security"]["Normal"]["Name"] = "Home";
 				$ajax["security"]["Normal"]["Status"] = "disabled";
-				$ajax["security"]["Arm Away"]["Name"] = "Arm Away";
-				$ajax["security"]["Arm Away"]["Status"] = "disabled";
-				$ajax["security"]["Arm Home"]["Name"] = "Arm Home";
-				$ajax["security"]["Arm Home"]["Status"] = "disabled";
+				$ajax["security"]["ArmAway"]["Name"] = "Arm Away";
+				$ajax["security"]["ArmAway"]["Status"] = "disabled";
+				$ajax["security"]["ArmHome"]["Name"] = "Arm Home";
+				$ajax["security"]["ArmHome"]["Status"] = "disabled";
 				
 				if ($securityStatus == "Normal"){
 					$ajax["security"]["Normal"]["Status"] = "enabled";
 				} elseif ($securityStatus == "Arm Away"){
-					$ajax["security"]["Arm Away"]["Status"] = "enabled";
+					$ajax["security"]["ArmAway"]["Status"] = "enabled";
 				} elseif ($securityStatus == "Arm Home"){
-					$ajax["security"]["Arm Home"]["Status"] = "enabled";
+					$ajax["security"]["ArmHome"]["Status"] = "enabled";
 				}
 			}
 			

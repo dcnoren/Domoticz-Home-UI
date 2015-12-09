@@ -99,7 +99,7 @@ $(document).ready(function(){
 	
 	$(document).on('click', '.security.disabled', function() {
 		mystatus = $(this).attr("id");
-		$.get('ajax/ajax.php?action=setStatus&idx=SECURITY_ID&command=' + mystatus);
+		$.get('ajax/ajax.php?action=setSecurity&command=' + mystatus);
 	});
 
 	$(document).on('click', '.Deactivated', function() {
