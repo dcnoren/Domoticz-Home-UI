@@ -3,7 +3,7 @@ require('ajax/functions.php');
 
 $getAllStatus = getAllStatus();
 
-print_r $getAllStatus["comfort"]["15"];
+print_r($getAllStatus["comfort"]["15"]);
 
 echo "<br />";
 
