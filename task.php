@@ -1,7 +1,7 @@
 <?php
 require('ajax/functions.php');
 
-$getAllStatus = json_encode(getAllStatus());
+$getAllStatus = json_decode(getAllStatus());
 
 var_dump($getAllStatus);
 
