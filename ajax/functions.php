@@ -162,7 +162,7 @@ function getDoorStatus($md5_only){
 	}
 }
 
-function getAllStatus($md5_only){
+function getAllStatus($md5_only, $format){
 	$ajax = array();
 	$meta = array();
 	$result = retAllStatus();
@@ -274,9 +274,17 @@ function getAllStatus($md5_only){
 		$ret_md5 = $_GET["md5"];
 
 		if ($ret_md5 == $md5){
-			return json_encode($meta);
+			if ($format == "array"){
+				return $meta;
+			} else {
+				return json_encode($meta);
+			}
 		} else {
-			return json_encode($ajax);
+			if ($format == "array"){
+				return $ajax;
+			} else {
+				return json_encode($ajax);
+			}
 		}
 	}
 }
