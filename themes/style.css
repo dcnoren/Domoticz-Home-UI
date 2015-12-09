@@ -100,13 +100,13 @@ padding: 0;
 	background-position: 50% 80%;
 }
 
-.Security {
+.security {
 	background-size: 50px 50px;
 	background-repeat: no-repeat;
 	background-position: 50% 80%;
 }
 
-.Security.Set {
+.security.set {
 	background-color: #dd4a2e;
 	background-size: 50px 50px;
 	background-repeat: no-repeat;
