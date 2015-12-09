@@ -96,6 +96,11 @@ $(document).ready(function(){
 		myidx = $(this).attr("id");
 		$.get('ajax/ajax.php?action=setStatus&idx=' + myidx + '&command=Off');
 	});
+	
+	$(document).on('click', '.security.disabled', function() {
+		mystatus = $(this).attr("id");
+		$.get('ajax/ajax.php?action=setStatus&idx=SECURITY_ID&command=' + mystatus);
+	});
 
 	$(document).on('click', '.Deactivated', function() {
 		$(this).siblings(".Activated").removeClass("Activated");
