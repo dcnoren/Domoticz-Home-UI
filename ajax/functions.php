@@ -49,7 +49,7 @@ function setStatus($idx, $cmd){
 }
 
 function setSecurity($status){
-	if ($status == "Disarm"){
+	if ($status == "Normal"){
 		$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=" . SECURITY_ID . "&switchcmd=Disarm");
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 		$result = curl_exec($curl);
