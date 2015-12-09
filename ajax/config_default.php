@@ -12,7 +12,7 @@ define( 'LOGGING_URL',			'' );
 
 
 /* Security Panel */
-$config("securityEnable") = "No";
-//$config("securityEnable") = "Yes"; //uncomment this if you wish to enable security panel compatibility
+$config["securityEnable"] = "No";
+//$config["securityEnable"] = "Yes"; //uncomment this if you wish to enable security panel compatibility
 
 ?>
