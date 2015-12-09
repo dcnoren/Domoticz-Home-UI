@@ -12,7 +12,6 @@ define( 'LOGGING_URL',			'' );
 
 
 /* Security Panel */
-$config["securityEnable"] = "No";
-//$config["securityEnable"] = "Yes"; //uncomment this if you wish to enable security panel compatibility
+//define( 'SECURITY_ENABLE',		'YES' ); //ENABLE THIS IF YOU WANT SECURITY ENABLED. CURRENTLY UNCOMMENTING THIS LINE WILL ENABLE LOGGING, EVEN IF YOU DEFINE AS NO.
 
 ?>
