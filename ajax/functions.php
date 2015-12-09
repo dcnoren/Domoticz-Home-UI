@@ -232,18 +232,18 @@ function getAllStatus($md5_only, $format){
 			$ajax["security"]["Arm Home"]["idx"] = $v2["idx"];
 			
 			$ajax["security"]["Normal"]["Name"] = "Home";
-			$ajax["security"]["Normal"]["Status"] = "Disabled";
+			$ajax["security"]["Normal"]["Status"] = "disabled";
 			$ajax["security"]["Arm Away"]["Name"] = "Arm Away";
-			$ajax["security"]["Arm Away"]["Status"] = "Disabled";
+			$ajax["security"]["Arm Away"]["Status"] = "disabled";
 			$ajax["security"]["Arm Home"]["Name"] = "Arm Home";
-			$ajax["security"]["Arm Home"]["Status"] = "Disabled";
+			$ajax["security"]["Arm Home"]["Status"] = "disabled";
 			
 			if ($securityStatus == "Normal"){
-				$ajax["security"]["Normal"]["Status"] = "Enabled";
+				$ajax["security"]["Normal"]["Status"] = "enabled";
 			} elseif ($securityStatus == "Arm Away"){
-				$ajax["security"]["Arm Away"]["Status"] = "Enabled";
+				$ajax["security"]["Arm Away"]["Status"] = "enabled";
 			} elseif ($securityStatus == "Arm Home"){
-				$ajax["security"]["Arm Home"]["Status"] = "Enabled";
+				$ajax["security"]["Arm Home"]["Status"] = "enabled";
 			}
 			
 		}
