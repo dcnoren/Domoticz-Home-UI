@@ -100,6 +100,10 @@ $(document).ready(function(){
 	$(document).on('click', '.security.disabled', function() {
 		mystatus = $(this).attr("id");
 		$.get('ajax/ajax.php?action=setSecurity&command=' + mystatus);
+		$("#securityBoard").parent().addClass("ui-disabled").delay(30000).queue(function(next){
+			$(this).removeClass("ui-disabled");
+			next();
+		});
 	});
 
 	$(document).on('click', '.Deactivated', function() {
