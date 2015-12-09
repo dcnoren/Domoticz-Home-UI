@@ -224,10 +224,23 @@ function getAllStatus($md5_only, $format){
 			$statusHardware = $v2["HardwareName"];
 			$statusName = $v2["Name"];
 			if ($statusHardware == "Unknown?" && $statusType == "Security"){
-				$ajax["security"][$v2["idx"]]["Status"] = $v2["Status"];
-				$ajax["security"][$v2["idx"]]["Type"] = $v2["Type"];
-				$ajax["security"][$v2["idx"]]["Name"] = $v2["Name"];
+				$securityStatus = $v2["Status"];
 			}
+			
+			$ajax["security"]["idx"] = $v2["idx"];
+			
+			$ajax["security"]["Normal"] = "Disabled";
+			$ajax["security"]["Arm Away"] = "Disabled";
+			$ajax["security"]["Arm Home"] = "Disabled";
+			
+			if ($securityStatus == "Normal"){
+				$ajax["security"]["Normal"] = "Enabled";
+			} elseif ($securityStatus == "Arm Away"){
+				$ajax["security"]["Arm Away"] = "Enabled";
+			} elseif ($securityStatus == "Arm Home"){
+				$ajax["security"]["Arm Home"] = "Enabled";
+			}
+			
 		}
 	}
 	
