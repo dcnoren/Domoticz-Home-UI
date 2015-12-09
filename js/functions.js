@@ -31,6 +31,15 @@ $(document).ready(function(){
 				});
 				$('#doorBoard').html(doorItems).enhanceWithin();
 				}
+				
+				var securityItems = [];
+
+				if (data.security){
+				$.each(data.security, function(key, val) {
+					securityItems.push('<div class="ui-block-b"><div id="' + key + '" class="security ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+				});
+				$('#securityBoard').html(securityItems).enhanceWithin();
+				}
 
 				var sceneItems = [];
 
@@ -86,6 +95,11 @@ $(document).ready(function(){
 		$(this).addClass("Transition").removeClass("On");
 		myidx = $(this).attr("id");
 		$.get('ajax/ajax.php?action=setStatus&idx=' + myidx + '&command=Off');
+	});
+	
+	$(document).on('click', '.security.disabled', function() {
+		mystatus = $(this).attr("id");
+		$.get('ajax/ajax.php?action=setSecurity&command=' + mystatus);
 	});
 
 	$(document).on('click', '.Deactivated', function() {

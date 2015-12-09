@@ -99,3 +99,16 @@ padding: 0;
 	background-repeat: no-repeat;
 	background-position: 50% 80%;
 }
+
+.security {
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}
+
+.security.enabled {
+	background-color: #dd4a2e;
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+}

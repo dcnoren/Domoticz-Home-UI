@@ -48,6 +48,27 @@ function setStatus($idx, $cmd){
 	return "ok";
 }
 
+function setSecurity($status){
+	if ($status == "Normal"){
+		$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=" . SECURITY_ID . "&switchcmd=Disarm");
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		$result = curl_exec($curl);
+		curl_close($curl);
+	}
+	if ($status == "ArmAway"){
+		$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=" . SECURITY_ID . "&switchcmd=Arm%20Away");
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		$result = curl_exec($curl);
+		curl_close($curl);
+	}
+	if ($status == "ArmHome"){
+		$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=" . SECURITY_ID . "&switchcmd=Arm%20Home");
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		$result = curl_exec($curl);
+		curl_close($curl);
+	}
+}
+
 function setDimmerStatus($idx, $cmd, $force, $level){
 	
 	if ($cmd == "On"){
@@ -214,6 +235,33 @@ function getAllStatus($md5_only, $format){
 			
 			$ajax["dummy"][$v2["idx"]]["Type"] = $v2["Type"];
 			$ajax["dummy"][$v2["idx"]]["Name"] = $v2["Name"];
+		}
+	}
+	
+	//Security - must enable this
+	if(defined('SECURITY_ENABLE')){
+		foreach ($result["result"] as $i2=>$v2){
+			$security_idx = $v2["idx"];
+			if ($security_idx == SECURITY_ID){
+			
+				$securityStatus = $v2["Status"];
+				
+				$ajax["security"]["Normal"]["Name"] = "Normal";
+				$ajax["security"]["Normal"]["Status"] = "disabled";
+				$ajax["security"]["ArmAway"]["Name"] = "Arm Away";
+				$ajax["security"]["ArmAway"]["Status"] = "disabled";
+				$ajax["security"]["ArmHome"]["Name"] = "Arm Home";
+				$ajax["security"]["ArmHome"]["Status"] = "disabled";
+				
+				if ($securityStatus == "Normal"){
+					$ajax["security"]["Normal"]["Status"] = "enabled";
+				} elseif ($securityStatus == "Arm Away"){
+					$ajax["security"]["ArmAway"]["Status"] = "enabled";
+				} elseif ($securityStatus == "Arm Home"){
+					$ajax["security"]["ArmHome"]["Status"] = "enabled";
+				}
+			}
+			
 		}
 	}
 	
