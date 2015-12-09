@@ -13,6 +13,7 @@ if (isset($_GET["idx"])){
 		$idx = constant("SECURITY_ID");
 	}
 	$idx = filter_var($idx, FILTER_SANITIZE_NUMBER_INT);
+	echo $idx;
 }
 
 $command = "";
