@@ -3,7 +3,7 @@ require('ajax/functions.php');
 
 $getAllStatus = getAllStatus();
 
-print_r($getAllStatus);
+var_dump($getAllStatus);
 
 echo "<br />";
 
