@@ -225,7 +225,7 @@ function getAllStatus($md5_only, $format){
 			$statusName = $v2["Name"];
 			if ($statusHardware == "Unknown?" && $statusType == "Security"){
 				$securityStatus = $v2["Status"];
-			}
+			
 			
 			$ajax["security"]["Normal"]["idx"] = $v2["idx"];
 			$ajax["security"]["Arm Away"]["idx"] = $v2["idx"];
@@ -236,7 +236,7 @@ function getAllStatus($md5_only, $format){
 			$ajax["security"]["Arm Away"]["Name"] = "Arm Away";
 			$ajax["security"]["Arm Away"]["Status"] = "disabled";
 			$ajax["security"]["Arm Home"]["Name"] = "Arm Home";
-			$ajax["security"]["Arm Home"]["Status"] = "disabled";
+			$ajax["security"]["Arm Home"]["Status"] = "Disabled";
 			
 			if ($securityStatus == "Normal"){
 				$ajax["security"]["Normal"]["Status"] = "enabled";
@@ -245,6 +245,7 @@ function getAllStatus($md5_only, $format){
 			} elseif ($securityStatus == "Arm Home"){
 				$ajax["security"]["Arm Home"]["Status"] = "enabled";
 			}
+		}
 			
 		}
 	}
