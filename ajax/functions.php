@@ -193,6 +193,30 @@ function getAllStatus($md5_only, $format){
 		}
 	}
 	
+	//Dummy
+	foreach ($result["result"] as $i2=>$v2){
+		$statusType = $v2["Type"];
+		$statusHardware = $v2["HardwareName"];
+		$statusName = $v2["Name"];
+		if ($statusHardware == "Hardware Dummy"){
+			
+			if(strpos($v2["Status"],"Set") !== false){
+				$ajax["dummy"][$v2["idx"]]["Status"] = "Transition";
+			} else {
+				$ajax["dummy"][$v2["idx"]]["Status"] = $v2["Status"];
+			}
+			
+			if ($v2["Status"] == "Off"){
+				$ajax["dummy"][$v2["idx"]]["Level"] = "0";
+			} else {
+				$ajax["dummy"][$v2["idx"]]["Level"] = $v2["Level"];
+			}
+			
+			$ajax["dummy"][$v2["idx"]]["Type"] = $v2["Type"];
+			$ajax["dummy"][$v2["idx"]]["Name"] = $v2["Name"];
+		}
+	}
+	
 	//Lights
 	foreach ($result["result"] as $i2=>$v2){
 		$statusType = $v2["Type"];
