@@ -227,7 +227,7 @@ function getAllStatus($md5_only, $format){
 				$securityStatus = $v2["Status"];
 			}
 			
-			$ajax["security"]["idx"] = $v2["idx"];
+			$ajax["security"][]["idx"] = $v2["idx"];
 			
 			$ajax["security"]["Normal"]["Name"] = "Home";
 			$ajax["security"]["Normal"]["Status"] = "Disabled";
