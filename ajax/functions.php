@@ -179,6 +179,21 @@ function getAllStatus($md5_only){
 		}
 	}
 	
+	//Comfort
+	foreach ($result["result"] as $i2=>$v2){
+		$statusType = $v2["Type"];
+		$statusHardware = $v2["HardwareName"];
+		$statusName = $v2["Name"];
+		if ($statusType == "Temp + Humidity"){
+			$ajax["comfort"][$v2["idx"]]["Status"] = $v2["Status"];
+			$ajax["comfort"][$v2["idx"]]["Type"] = $v2["Type"];
+			$ajax["comfort"][$v2["idx"]]["Name"] = $v2["Name"];
+			$ajax["comfort"][$v2["idx"]]["Temperature"] = number_format((float)$v2["Temp"], 2, '.', '');
+			$ajax["comfort"][$v2["idx"]]["Humidity"] = $v2["Humidity"];
+			$ajax["comfort"][$v2["idx"]]["ComfortLevel"] = $v2["HumidityStatus"];
+		}
+	}
+	
 	//Lights
 	foreach ($result["result"] as $i2=>$v2){
 		$statusType = $v2["Type"];
