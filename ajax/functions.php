@@ -185,7 +185,6 @@ function getAllStatus($md5_only){
 		$statusHardware = $v2["HardwareName"];
 		$statusName = $v2["Name"];
 		if ($statusType == "Temp + Humidity"){
-			$ajax["comfort"][$v2["idx"]]["Status"] = $v2["Status"];
 			$ajax["comfort"][$v2["idx"]]["Type"] = $v2["Type"];
 			$ajax["comfort"][$v2["idx"]]["Name"] = $v2["Name"];
 			$ajax["comfort"][$v2["idx"]]["Temperature"] = number_format((float)$v2["Temp"], 2, '.', '');
