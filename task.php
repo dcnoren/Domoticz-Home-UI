@@ -7,7 +7,7 @@ $getAllStatus = json_decode(getAllStatus());
 
 //echo "<br />";
 
-echo $getAllStatus["comfort"]["43"]["Humidity"];
+echo $getAllStatus["comfort"][43]["Humidity"];
 
 if (($getAllStatus["comfort"]["43"]["Humidity"] - $getAllStatus["comfort"]["15"]["Humidity"]) >= 10){
 	echo "43 is " . $getAllStatus["comfort"]["43"]["Humidity"] . " and 15 is " . $getAllStatus["comfort"]["15"]["Humidity"];
