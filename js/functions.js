@@ -36,7 +36,7 @@ $(document).ready(function(){
 
 				if (data.security){
 				$.each(data.security, function(key, val) {
-					securityItems.push('<div class="ui-block-b"><div id="' + key + '"><div class="security ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div></div>');
+					securityItems.push('<div class="ui-block-b"><div id="' + key + '" class="security ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
 				});
 				$('#securityBoard').html(securityItems).enhanceWithin();
 				}
