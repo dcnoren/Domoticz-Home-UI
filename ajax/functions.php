@@ -162,7 +162,7 @@ function getDoorStatus($md5_only){
 	}
 }
 
-function getAllStatus($md5_only){
+function getAllStatus($md5_only, $format){
 	$ajax = array();
 	$meta = array();
 	$result = retAllStatus();
@@ -176,6 +176,44 @@ function getAllStatus($md5_only){
 			$ajax["doors"][$v2["idx"]]["Status"] = $v2["Status"];
 			$ajax["doors"][$v2["idx"]]["Type"] = $v2["Type"];
 			$ajax["doors"][$v2["idx"]]["Name"] = $v2["Name"];
+		}
+	}
+	
+	//Comfort
+	foreach ($result["result"] as $i2=>$v2){
+		$statusType = $v2["Type"];
+		$statusHardware = $v2["HardwareName"];
+		$statusName = $v2["Name"];
+		if ($statusType == "Temp + Humidity"){
+			$ajax["comfort"][$v2["idx"]]["Type"] = $v2["Type"];
+			$ajax["comfort"][$v2["idx"]]["Name"] = $v2["Name"];
+			$ajax["comfort"][$v2["idx"]]["Temperature"] = number_format((float)$v2["Temp"], 2, '.', '');
+			$ajax["comfort"][$v2["idx"]]["Humidity"] = $v2["Humidity"];
+			$ajax["comfort"][$v2["idx"]]["ComfortLevel"] = $v2["HumidityStatus"];
+		}
+	}
+	
+	//Dummy
+	foreach ($result["result"] as $i2=>$v2){
+		$statusType = $v2["Type"];
+		$statusHardware = $v2["HardwareName"];
+		$statusName = $v2["Name"];
+		if ($statusHardware == "Hardware Dummy"){
+			
+			if(strpos($v2["Status"],"Set") !== false){
+				$ajax["dummy"][$v2["idx"]]["Status"] = "Transition";
+			} else {
+				$ajax["dummy"][$v2["idx"]]["Status"] = $v2["Status"];
+			}
+			
+			if ($v2["Status"] == "Off"){
+				$ajax["dummy"][$v2["idx"]]["Level"] = "0";
+			} else {
+				$ajax["dummy"][$v2["idx"]]["Level"] = $v2["Level"];
+			}
+			
+			$ajax["dummy"][$v2["idx"]]["Type"] = $v2["Type"];
+			$ajax["dummy"][$v2["idx"]]["Name"] = $v2["Name"];
 		}
 	}
 	
@@ -260,9 +298,17 @@ function getAllStatus($md5_only){
 		$ret_md5 = $_GET["md5"];
 
 		if ($ret_md5 == $md5){
-			return json_encode($meta);
+			if ($format == "array"){
+				return $meta;
+			} else {
+				return json_encode($meta);
+			}
 		} else {
-			return json_encode($ajax);
+			if ($format == "array"){
+				return $ajax;
+			} else {
+				return json_encode($ajax);
+			}
 		}
 	}
 }
