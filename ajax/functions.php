@@ -41,11 +41,13 @@ function retAllStatus(){
 }
 
 function setStatus($idx, $cmd){
+	$url = DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=$idx&switchcmd=$cmd";
+	return $url;
 	$curl = curl_init(DOMOTICZ_JSON_URL . "?type=command&param=switchlight&idx=$idx&switchcmd=$cmd");
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 	$result = curl_exec($curl);
 	curl_close($curl);
-	return "ok";
+	//return "ok";
 }
 
 function setDimmerStatus($idx, $cmd, $force, $level){
