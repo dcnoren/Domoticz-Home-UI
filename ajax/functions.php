@@ -104,7 +104,7 @@ function getLightStatus($md5_only){
 		$statusType = $v2["Type"];
 		$statusHardware = $v2["HardwareName"];
 		$statusName = $v2["Name"];
-		if (($statusType == "Lighting 1" OR $statusType == "Lighting 2" OR OR $statusType == "Light/Switch") AND (strpos($statusName,"Aux") == false) AND ($statusHardware == "Z-Wave")){
+		if (($statusType == "Lighting 1" OR $statusType == "Lighting 2" OR $statusType == "Light/Switch") AND (strpos($statusName,"Aux") == false) AND ($statusHardware == "Z-Wave")){
 			
 			if(strpos($v2["Status"],"Set") !== false){
 				$ajax["devices"][$v2["idx"]]["Status"] = "Transition";
