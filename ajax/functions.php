@@ -156,7 +156,7 @@ function getDoorStatus($md5_only){
 		$statusType = $v2["Type"];
 		$statusHardware = $v2["HardwareName"];
 		$statusName = $v2["Name"];
-		if (($statusType == "Lighting 1" OR $statusType == "Lighting 2" OR OR $statusType == "Light/Switch") AND (strpos($statusName,"Door") == true) AND ($statusHardware == "MySensors")){
+		if (($statusType == "Lighting 1" OR $statusType == "Lighting 2" OR $statusType == "Light/Switch") AND (strpos($statusName,"Door") == true) AND ($statusHardware == "MySensors")){
 			$ajax["devices"][$v2["idx"]]["Status"] = $v2["Status"];
 			$ajax["devices"][$v2["idx"]]["Level"] = $v2["Level"];
 			$ajax["devices"][$v2["idx"]]["Type"] = $v2["Type"];
@@ -193,7 +193,7 @@ function getAllStatus($md5_only, $format){
 		$statusType = $v2["Type"];
 		$statusHardware = $v2["HardwareName"];
 		$statusName = $v2["Name"];
-		if (($statusType == "Lighting 1" OR $statusType == "Lighting 2" OR OR $statusType == "Light/Switch") AND (strpos($statusName,"Door") == true) AND ($statusHardware == "MySensors")){
+		if (($statusType == "Lighting 1" OR $statusType == "Lighting 2" OR $statusType == "Light/Switch") AND (strpos($statusName,"Door") == true) AND ($statusHardware == "MySensors")){
 			$ajax["doors"][$v2["idx"]]["Status"] = $v2["Status"];
 			$ajax["doors"][$v2["idx"]]["Type"] = $v2["Type"];
 			$ajax["doors"][$v2["idx"]]["Name"] = $v2["Name"];
