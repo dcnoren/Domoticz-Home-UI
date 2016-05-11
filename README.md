@@ -1,3 +1,7 @@
+As of January 2016, I am no longer updating this project. The JSON API approach to interfacing with Domoticz was highly inefficient, and PHP is inefficient at daemon-like tasks that were needed here. I have since moved to MQTT and Node.JS for this. You can find the ported project in my other GitHub repositories.
+
+
+
 This is meant to be used in conjunction with Domoticz (http://www.domoticz.com) which is a home automation control panel software suite. While Domoticz has a powerful events system and user interface, everything can become rather cluttered and difficult to maintain exactly how one wishes. Additionally, it is not necessarily user-friendly.
 
 This project utilizes jQuery to create a user-friendly, WAF-passing (wife acceptability factor), simple interface. It tackles a few design issues with Domoticz, such as fixing the general issues with Z-Wave light switches that prevent instant-status updates. When using this UI, the Z-Wave commands will be run multiple times over less than 5 seconds to 'force' the lights to reflect the current physical status.
